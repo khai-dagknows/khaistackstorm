@@ -1,4 +1,5 @@
 version: 1.0
+name: khai-test-workflow1
 description: Khai Test Workflow1 Definition
 input:
   - number1
