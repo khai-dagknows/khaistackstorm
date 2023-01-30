@@ -1,0 +1,18 @@
+---
+ref: khaistackstorm
+name: Khai Test StackStorm
+description: Khai Test StackStorm
+keywords:
+  - example 
+  - test
+version:  1.0.0
+python_versions:
+  - "3"
+dependencies:
+  - core
+author: Khai Doan
+email: khai@dagknows.com
+
+contributors:
+  - khai@dagknows.com
+
