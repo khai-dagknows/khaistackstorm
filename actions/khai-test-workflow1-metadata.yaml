@@ -2,7 +2,7 @@ name: khai-test-workflow1
 pack: khaistackstorm
 description: Khai Test Workflow1
 runner_type: orquesta
-entry_point: khai-test-workflow1-definition.yaml
+entry_point: workflows/khai-test-workflow1-definition.yaml
 enabled: true
 parameters:
   number1:
