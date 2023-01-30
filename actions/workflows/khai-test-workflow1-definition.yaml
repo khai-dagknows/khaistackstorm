@@ -1,7 +1,5 @@
 version: 1.0
-name: khai-test-workflow1
 description: Khai Test Workflow1 Definition
-runner_type: orquesta
 input:
   - number1
   - number2
