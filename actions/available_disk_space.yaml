@@ -1,0 +1,12 @@
+name: available_disk_space
+pack: khaistackstorm
+runner_type: "python-script"
+description: Get Available Disk Space
+enabled: true
+entry_point: available_disk_space.py
+parameters:
+    str:
+        type: string
+        description: Output of the df command
+        required: true
+        position: 1
