@@ -18,9 +18,9 @@ tasks:
 
   task1_memory_usage:
     action: core.remote hosts={{host}} cmd="free"
-    next:
-      - publish: message=<% result().stdout %>
-        do: output_message
+#    next:
+#      - publish: message=<% result().stdout %>
+#        do: output_message
 #    action: core.remote hosts={{host}} cmd="free"
 #    next:
 #      - when: <% succeeded() %>
