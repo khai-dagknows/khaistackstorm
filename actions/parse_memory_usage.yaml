@@ -1,5 +1,5 @@
 name: parse_memory_usage
-pack: khaistackstorm/
+pack: khaistackstorm
 runner_type: "python-script"
 description: Parse Memory Usage
 enabled: true
