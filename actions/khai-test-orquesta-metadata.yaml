@@ -1,0 +1,16 @@
+name: khai-test-orquesta
+pack: khaistackstorm
+description: Khai Test Orquesta
+runner_type: orquesta
+entry_point: workflows/khai-test-orquesta-definition.yaml
+enabled: true
+parameters:
+  host:
+    required: true
+    type: string
+  memory_threshold:
+    required: true
+    type: integer
+  cpu_threshold:
+    required: true
+    type: integer

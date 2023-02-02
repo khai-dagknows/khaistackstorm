@@ -1,0 +1,30 @@
+version: 1.0
+description: Khai Test Orquesta Definition
+input:
+  - host
+  - memory_threshold
+  - cpu_threshold
+tasks:
+  setup_task:
+    next:
+      - do:
+          - task1_memory_usage
+#          - task2_top_memory_consumers
+#          - task3_available_disk_space
+#          - task4_cpu_usage
+
+  task1_memory_usage:
+    action: "core.remote hosts={{host}} free"
+    next:
+      - when: <% succeeded() %>
+        do: 
+          - task1_memory_usage_a
+  task1_memory_usage_a:
+    action: "core.remote hosts={{host}} free"
+    next:
+      - when: <% succeeded() %>
+        do: 
+          - barrier
+  barrier:
+    join:all
+    action: core.echo message="I need to output appropriate message in the barrier task based on the result"
