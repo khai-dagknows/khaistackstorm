@@ -20,7 +20,7 @@ tasks:
         do: 
           - task1_memory_usage_a
   task1_memory_usage_a:
-    action: "core.remote hosts={{host}} free"
+    action: "khaistackstorm.parse_memory_usage str={{result().stdout}}
     next:
       - when: <% succeeded() %>
         do: 
