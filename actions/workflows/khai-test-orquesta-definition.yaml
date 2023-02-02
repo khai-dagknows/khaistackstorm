@@ -20,7 +20,7 @@ tasks:
   task1_memory_usage:
     action: core.remote hosts=<% ctx().host %> cmd="free"
     next:
-      - publish: message=<% result().result %>
+      - publish: message=<% result() %>
         do: output_message
 #    action: core.remote hosts={{host}} cmd="free"
 #    next:
