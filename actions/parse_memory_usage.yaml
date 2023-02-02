@@ -1,0 +1,12 @@
+name: parse_memory_usage
+pack: khaistackstorm/
+runner_type: "python-script"
+description: Parse Memory Usage
+enabled: true
+entry_point: parse_memory_usage.py
+parameters:
+    str:
+        type: string
+        description: Output of the free command
+        required: true
+        position: 1

@@ -1,0 +1,12 @@
+---
+name: "top_memory_consumers"
+runner_type: "python-script"
+description: "Take the output of top and cut it off"
+enabled: true
+entry_point: "top_memory_consumers.py"
+parameters:
+    str:
+        type: "string"
+        description: "The output of top"
+        required: true
+        position: 0
