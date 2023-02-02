@@ -14,7 +14,7 @@ tasks:
 #          - task4_cpu_usage
 
   task1_memory_usage:
-    action: "core.remote hosts={{host}} free"
+    action: core.remote hosts={{host}} cmd="free"
     next:
       - when: <% succeeded() %>
         do: 
