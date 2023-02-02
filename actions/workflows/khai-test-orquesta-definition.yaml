@@ -1,5 +1,8 @@
 version: 1.0
 description: Khai Test Orquesta Definition
+vars:
+  - message: 'Hello world'
+
 input:
   - host
   - memory_threshold
@@ -14,11 +17,14 @@ tasks:
 #          - task4_cpu_usage
 
   task1_memory_usage:
-    action: core.remote hosts={{host}} cmd="free"
+    action: core.noop
     next:
-      - when: <% succeeded() %>
-        do: 
-          - task1_memory_usage_a
+      - do: output_message
+#    action: core.remote hosts={{host}} cmd="free"
+#    next:
+#      - when: <% succeeded() %>
+#        do: 
+#          - task1_memory_usage_a
   task1_memory_usage_a:
     action: khaistackstorm.parse_memory_usage str=<% result().stdout %>
     next:
