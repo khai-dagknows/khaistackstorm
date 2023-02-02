@@ -20,7 +20,7 @@ tasks:
   task1_memory_usage:
     action: core.remote hosts=<% ctx().host %> cmd="free"
     next:
-      - do: task1_memory_usage_a, output_message
+      - do: task1_memory_usage_a
 
   task1_memory_usage_a:
     action: khaistackstorm.parse_memory_usage str=<% result() %>
