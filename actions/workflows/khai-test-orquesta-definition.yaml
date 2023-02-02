@@ -23,8 +23,11 @@ tasks:
     action: khaistackstorm.parse_memory_usage str=<% result().stdout %>
     next:
       - when: <% succeeded() %>
+        publish: message="task1_memory_usage_a succeeded"
         do: 
-          - core.echo message="No barrier setup"
+          - output_message
+  output_message:
+    action: core.echo message=<% ctx('message') %>
 #  barrier:
 #    join: all
 #    action: core.echo message="I need to output appropriate message in the barrier task based on the result"
