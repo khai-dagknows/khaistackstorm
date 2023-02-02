@@ -1,0 +1,12 @@
+name: cpu_usage
+pack: khaistackstorm
+runner_type: "python-script"
+description: Get CPU Usage
+enabled: true
+entry_point: cpu_usage.py
+parameters:
+    str:
+        type: string
+        description: Output of the top command
+        required: true
+        position: 1
