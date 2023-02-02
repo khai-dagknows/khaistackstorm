@@ -17,9 +17,10 @@ tasks:
 #          - task4_cpu_usage
 
   task1_memory_usage:
-    action: core.noop
+    action: core.remote hosts={{host}} cmd="free"
     next:
-      - do: output_message
+      - publish: message=<% result().stdout %>
+        do: output_message
 #    action: core.remote hosts={{host}} cmd="free"
 #    next:
 #      - when: <% succeeded() %>
