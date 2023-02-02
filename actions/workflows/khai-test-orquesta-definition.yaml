@@ -25,7 +25,7 @@ tasks:
   task1_memory_usage_a:
     action: khaistackstorm.parse_memory_usage str=<% result() %>
     next:
-      - publish: message="task1_memory_usage_a result: <% result() %"
+      - publish: message="task1_memory_usage_a result: <% result() %>"
         do: output_message
   output_message:
     action: core.echo message=<% ctx('message') %>
