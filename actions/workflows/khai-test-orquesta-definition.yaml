@@ -26,5 +26,5 @@ tasks:
         do: 
           - barrier
   barrier:
-    join:all
+    join: all
     action: core.echo message="I need to output appropriate message in the barrier task based on the result"
