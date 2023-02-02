@@ -24,7 +24,7 @@ tasks:
     next:
       - when: <% succeeded() %>
         do: 
-          - barrier
-  barrier:
-    join: all
-    action: core.echo message="I need to output appropriate message in the barrier task based on the result"
+          - core.echo message="No barrier setup"
+#  barrier:
+#    join: all
+#    action: core.echo message="I need to output appropriate message in the barrier task based on the result"
