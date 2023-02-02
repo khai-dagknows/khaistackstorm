@@ -20,13 +20,13 @@ tasks:
   task1_memory_usage:
     action: core.remote hosts=<% ctx().host %> cmd="free"
     next:
-      - do: task1_memory_usage_a
+      - do: task1_memory_usage_a, output_message
 
   task1_memory_usage_a:
     action: khaistackstorm.parse_memory_usage str=<% result() %>
-    next:
-      - publish: message="task1_memory_usage_a result: <% result() %>"
-        do: output_message
+#    next:
+#      - publish: message="task1_memory_usage_a result: <% result() %>"
+#        do: output_message
   output_message:
     action: core.echo message=<% ctx('message') %>
 #  barrier:
