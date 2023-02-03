@@ -74,7 +74,7 @@ tasks:
         do: task4_cpu_usage_a
 
   task4_cpu_usage_a:
-    action: khaistackstorm.available_disk_space str=<% ctx().task4_cpu_usage_result %>
+    action: khaistackstorm.cpu_usage str=<% ctx().task4_cpu_usage_result %>
     next:
       - publish:
           - message: "task4_cpu_usage_a result: <% result().result %>"
