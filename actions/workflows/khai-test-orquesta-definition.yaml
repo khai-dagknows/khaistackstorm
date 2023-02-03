@@ -42,7 +42,7 @@ tasks:
         do: task2_top_memory_consumers_a
 
   task2_top_memory_consumers_a:
-    action: khaistackstorm.top_meory_consumers str=<% ctx().task2_top_memory_consumers_result %>
+    action: khaistackstorm.top_memory_consumers str=<% ctx().task2_top_memory_consumers_result %>
     next:
       - publish:
           - message: "task2_top_memory_consumers_a result: <% result().result %>"
