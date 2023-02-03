@@ -21,7 +21,8 @@ tasks:
     action: core.remote hosts=<% ctx().host %> cmd="free"
     next:
       - when: <% succeeded() %>
-        publish: message="task1_memory_usage_a result: <% result() %>"
+        publish: 
+          - message: "task1_memory_usage_a result: <% result() %>"
         do: output_message
 
 #  task1_memory_usage_a:
