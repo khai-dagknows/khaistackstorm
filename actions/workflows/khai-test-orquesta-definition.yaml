@@ -22,7 +22,7 @@ tasks:
     next:
       - when: <% succeeded() %>
         publish: 
-          - task1_memory_usage__result: <% result().result %>
+          - task1_memory_usage__result: <% result()[host] %>
         do: task1_memory_usage_a
 
   task1_memory_usage_a:
