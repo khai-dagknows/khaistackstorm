@@ -49,6 +49,22 @@ tasks:
           - top_memory_consumers: <% result().result %>
         do: barrier
 
+  task3_available_disk_space:
+    action: core.remote hosts=<% ctx().host %> cmd="df -h"
+    next:
+      - when: <% succeeded() %>
+        publish: 
+          - task3_available_disk_space_result: <% result()[ctx().host].stdout %>
+        do: task3_available_disk_space_a
+
+  task3_available_disk_space_a:
+    action: khaistackstorm.available_disk_space str=<% ctx().task3_available_disk_space_result %>
+    next:
+      - publish:
+          - message: "task3_available_disk_space_a result: <% result().result %>"
+          - available_disk_space: <% result().result %>
+        do: barrier
+
   output_message:
     action: core.echo message=<% ctx('message') %>
   barrier:
