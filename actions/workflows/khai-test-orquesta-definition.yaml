@@ -13,7 +13,7 @@ tasks:
     next:
       - do:
           - task1_memory_usage
-#          - task2_top_memory_consumers
+          - task2_top_memory_consumers
 #          - task3_available_disk_space
 #          - task4_cpu_usage
 
@@ -22,16 +22,33 @@ tasks:
     next:
       - when: <% succeeded() %>
         publish: 
-          - task1_memory_usage__result: <% result()[ctx().host].stdout %>
+          - task1_memory_usage_result: <% result()[ctx().host].stdout %>
         do: task1_memory_usage_a
 
   task1_memory_usage_a:
-    action: khaistackstorm.parse_memory_usage str=<% ctx().task1_memory_usage__result %>
+    action: khaistackstorm.parse_memory_usage str=<% ctx().task1_memory_usage_result %>
     next:
       - publish:
           - message: "task1_memory_usage_a result: <% result().result %>"
           - memory_usage: <% result().result %>
         do: barrier
+
+  task2_top_memory_consumers:
+    action: core.remote hosts=<% ctx().host %> cmd="top -o %MEM -n 1 -b | head -n 16"
+    next:
+      - when: <% succeeded() %>
+        publish: 
+          - task2_top_memory_consumers_result: <% result()[ctx().host].stdout %>
+        do: task2_top_memory_consumers_a
+
+  task2_top_memory_consumers_a:
+    action: khaistackstorm.top_meory_consumers str=<% ctx().task2_top_memory_consumers_result %>
+    next:
+      - publish:
+          - message: "task2_top_memory_consumers_a result: <% result().result %>"
+          - top_memory_consumers: <% result().result %>
+        do: barrier
+
   output_message:
     action: core.echo message=<% ctx('message') %>
   barrier:
