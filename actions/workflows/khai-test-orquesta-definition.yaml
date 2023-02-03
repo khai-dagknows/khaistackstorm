@@ -15,7 +15,7 @@ tasks:
           - task1_memory_usage
           - task2_top_memory_consumers
           - task3_available_disk_space
-#          - task4_cpu_usage
+          - task4_cpu_usage
 
   task1_memory_usage:
     action: core.remote hosts=<% ctx().host %> cmd="free"
