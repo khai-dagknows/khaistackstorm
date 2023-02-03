@@ -30,7 +30,7 @@ tasks:
     next:
       - publish:
           - message: "task1_memory_usage_a result: <% result().result %>"
-#            memory_usage: <% result().result %>
+          - memory_usage: <% result().result %>
         do: barrier
 #  output_message:
 #    action: core.echo message=<% ctx('message') %>
