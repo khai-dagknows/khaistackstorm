@@ -22,14 +22,14 @@ tasks:
     next:
       - when: <% succeeded() %>
         publish: 
-          - message: "task1_memory_usage_a result: <% result() %>"
-        do: output_message
+          - message: "task1_memory_usage__result: <% result() %>"
+        do: task1_memory_usage_a
 
-#  task1_memory_usage_a:
-#    action: khaistackstorm.parse_memory_usage str=<% result() %>
-#    next:
-#      - publish: message="task1_memory_usage_a result: <% result() %>"
-#        do: output_message
+  task1_memory_usage_a:
+    action: khaistackstorm.parse_memory_usage str=<% ctx().task1_memory_usage__result %>
+    next:
+      - publish: message="task1_memory_usage_a result: <% result() %>"
+        do: output_message
   output_message:
     action: core.echo message=<% ctx('message') %>
 #  barrier:
