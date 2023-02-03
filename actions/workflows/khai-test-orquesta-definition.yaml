@@ -14,7 +14,7 @@ tasks:
       - do:
           - task1_memory_usage
           - task2_top_memory_consumers
-#          - task3_available_disk_space
+          - task3_available_disk_space
 #          - task4_cpu_usage
 
   task1_memory_usage:
@@ -65,6 +65,22 @@ tasks:
           - available_disk_space: <% result().result %>
         do: barrier
 
+  task4_cpu_usage:
+    action: core.remote hosts=<% ctx().host %> cmd="top -o %MEM -n 1 -b | head -n 16"
+    next:
+      - when: <% succeeded() %>
+        publish: 
+          - task4_cpu_usage_result: <% result()[ctx().host].stdout %>
+        do: task4_cpu_usage_a
+
+  task4_cpu_usage_a:
+    action: khaistackstorm.available_disk_space str=<% ctx().task4_cpu_usage_result %>
+    next:
+      - publish:
+          - message: "task4_cpu_usage_a result: <% result().result %>"
+          - cpu_usage: <% result().result %>
+        do: barrier
+
   output_message:
     action: core.echo message=<% ctx('message') %>
   barrier:
@@ -75,3 +91,8 @@ tasks:
         publish:
           - message: "Memory usage exceeded threshold"
         do: output_message
+      - when: <% ctx('cpu_usage') > ctx('cpu_threshold') %>
+        publish:
+          - message: "CPU usage exceeded threshold"
+        do: output_message
+
