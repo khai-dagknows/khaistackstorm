@@ -5,7 +5,7 @@
     enabled: true                          # required
 
     trigger:                               # required
-        type: "khai_simple_sensor_event"
+        type: "khaistackstorm.khai_simple_sensor_event"
 
     criteria:                              # optional
         trigger.payload.random_number:
