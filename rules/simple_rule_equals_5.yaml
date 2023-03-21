@@ -1,0 +1,18 @@
+---
+    name: "simple_rule_equals_5"                      # required
+    pack: "khaistackstorm"                       # optional
+    description: "Khai's simple rule for testing (equals 5)"       # optional
+    enabled: true                          # required
+
+    trigger:                               # required
+        type: "khai_simple_sensor_event"
+
+    criteria:                              # optional
+        trigger.payload.random_number:
+            type: "equals"
+            pattern : "5"
+
+    action:                                # required
+        ref: "core.echo"
+        parameters:                        # optional
+            message: "Equals 5"
