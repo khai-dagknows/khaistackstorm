@@ -8,7 +8,7 @@
         type: "khaistackstorm.khai_simple_sensor_event"
 
     criteria:                              # optional
-        trigger.payload.random_number:
+        trigger.random_number:
             type: "equals"
             pattern : "5"
 
