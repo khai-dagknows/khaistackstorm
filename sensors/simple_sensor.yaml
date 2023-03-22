@@ -4,7 +4,7 @@
   description: "Simple sensor that emits triggers."
   trigger_types:
     -
-      name: "khaistackstorm.khai_simple_sensor_event"
+      name: "khai_simple_sensor_event"
       description: "Khai Simple Sensor Event"
       payload_schema:
         type: "object"
