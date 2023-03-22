@@ -4,7 +4,7 @@ import random
 
 class SimpleSensor(Sensor):
     def __init__(self, sensor_service, config):
-        super(HelloSensor, self).__init__(sensor_service=sensor_service, config=config)
+        super(SimpleSensor, self).__init__(sensor_service=sensor_service, config=config)
         self._logger = self.sensor_service.get_logger(name=self.__class__.__name__)
         self._stop = False
 
@@ -13,7 +13,7 @@ class SimpleSensor(Sensor):
 
     def run(self):
         while not self._stop:
-            self._logger.debug("HelloSensor dispatching trigger...")
+            self._logger.debug("SimpleSensor dispatching trigger...")
 
             list1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
             choice = random.choice(list1)
