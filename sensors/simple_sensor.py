@@ -19,7 +19,7 @@ class SimpleSensor(Sensor):
             choice = random.choice(list1)
 
             payload = {"random_number": choice}
-            self.sensor_service.dispatch(trigger="khai_simple_sensor_event", payload=payload)
+            self.sensor_service.dispatch(trigger="khaistackstorm.khai_simple_sensor_event", payload=payload)
             eventlet.sleep(60)
 
         pass
