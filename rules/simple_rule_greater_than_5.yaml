@@ -10,7 +10,7 @@
     criteria:                              # optional
         trigger.random_number:
             type: "greaterthan"
-            pattern : "5"
+            pattern : 5
 
     action:                                # required
         ref: "core.echo"
