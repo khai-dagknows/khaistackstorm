@@ -9,7 +9,5 @@
       payload_schema:
         type: "object"
         properties:
-          executed_at:
-            type: "string"
-            format: "date-time"
-            default: "2014-07-30 05:04:24.578325"
+          random_number:
+            type: "integer"
