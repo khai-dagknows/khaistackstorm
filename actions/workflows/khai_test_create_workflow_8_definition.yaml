@@ -1,0 +1,10 @@
+version: '1'
+description: khai test create workflow 8
+vars:
+- message: Hello world
+tasks:
+  sample_task:
+    action: core.echo
+    input:
+    - message: Hello world
+

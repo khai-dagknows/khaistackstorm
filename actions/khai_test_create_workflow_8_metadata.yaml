@@ -1,0 +1,6 @@
+name: khai_test_create_workflow_8
+pack: khaistackstorm
+description: khai test create workflow 8
+runner_type: orquesta
+entry_point: workflows/khai_test_create_workflow_8_definition.yaml
+enabled: true
