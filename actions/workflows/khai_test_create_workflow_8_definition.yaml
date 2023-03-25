@@ -6,5 +6,5 @@ tasks:
   sample_task:
     action: core.echo
     input:
-    - message: Hello world
+    	message: Hello world
 
