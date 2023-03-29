@@ -1,0 +1,50 @@
+name: get_search_results
+description: Retrieve Google search results for the provided query.
+enabled: true
+entry_point: get_search_results.py
+pack: khaistackstorm
+runner_type: python-script
+parameters:
+  content_version:
+    type: string
+    description: >-
+      Git revision of the pack content to use for this action execution (git
+      commit sha / tag / branch). Only applies to packs which are git
+      repositories.
+    required: false
+  timeout:
+    type: integer
+    description: >-
+      Action timeout in seconds. Action will get killed if it doesn't finish in
+      timeout seconds.
+    default: 600
+  env:
+    type: object
+    description: Environment variables which will be available to the script.
+  query:
+    required: true
+    type: string
+    description: Search query.
+  log_level:
+    enum:
+      - AUDIT
+      - CRITICAL
+      - ERROR
+      - WARNING
+      - INFO
+      - DEBUG
+    type: string
+    description: Default log level for Python runner actions.
+    default: DEBUG
+  debug:
+    default: false
+    type: boolean
+    description: Enable runner debug mode.
+    required: false
+  count:
+    required: false
+    type: integer
+    description: Maximum number of results to retrieve.
+    default: 10
+output_schema: {}
+notify: {}
