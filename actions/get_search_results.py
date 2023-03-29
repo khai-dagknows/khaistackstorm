@@ -18,4 +18,4 @@ class GetSearchResultsAction(Action):
         results = google.search(query, num_page)[:count]
         result = [google_result_to_dict(obj=obj) for obj in results]
         result = json.dumps(result)
-        return result
+        
