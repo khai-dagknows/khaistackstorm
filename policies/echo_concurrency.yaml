@@ -1,8 +1,0 @@
-name: echo_concurrency
-description: Limits the concurrent executions for my action.
-enabled: true
-resource_ref: core.echo
-policy_type: action.concurrency
-parameters:
-    action: delay
-    threshold: 10
