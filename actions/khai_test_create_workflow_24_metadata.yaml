@@ -1,6 +1,0 @@
-name: khai_test_create_workflow_24
-pack: khaistackstorm
-description: khai test create workflow 24
-runner_type: orquesta
-entry_point: workflows/khai_test_create_workflow_24_definition.yaml
-enabled: true
